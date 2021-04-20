@@ -4,7 +4,6 @@ public class Triangle
 {
   /*
             schematic triangle  with numbered sides
-
                 AC
                 | \
                 | \\
@@ -24,9 +23,24 @@ public class Triangle
 
                 all angles are the inside angles of the triangle.
                 we assume the angle between A and B to be 90 degrees.
-
          */
 
+    private double length_a;
+    private double length_b;
+    private double length_c;
+    private double angle_ac;
+    private double angle_ba;
+    private double angle_cb;
+
+    public double getLengthA(){ return this.length_a;}
+    public double getLengthB(){ return this.length_b;}
+    public double getLengthC(){ return this.length_c;}
+    public double getAC_angle(){ return this.angle_ac;}
+    public double getBA_angle(){ return this.angle_ba;}
+    public double getCB_angle(){ return this.angle_cb;}
+
+    public Triangle(){
+    }
 
     public Triangle(double ac_angle, double c_length)
     {
@@ -52,20 +66,28 @@ public class Triangle
         this.length_a = Math.sqrt(Math.pow(this.length_c,2) - Math.pow(this.length_b, 2) );
     }
 
+    public void printAside(){
+        System.out.println("Triangle A-side: " + getLengthA());
+    }
 
-    private double length_a;
-    private double length_b;
-    private double length_c;
-    private double angle_ac;
-    private double angle_ba;
-    private double angle_cb;
+    public void printBside(){
+        System.out.println("Triangle B-side: " + getLengthB());
+    }
 
-    public double A_Length(){ return this.length_a;}
-    public double B_Length(){ return this.length_b;}
-    public double C_Length(){ return this.length_c;}
-    public double AC_Angle(){ return this.angle_ac;}
-    public double BA_Angle(){ return this.angle_ba;}
-    public double CB_Angle(){ return this.angle_cb;}
+    public void printCside(){
+        System.out.println("Triangle C-side: " + getLengthC());
+    }
 
+    public void printACangle(){
+        System.out.println("Triangle angle AC: " + getAC_angle());
+    }
+
+    public void printBAangle(){
+        System.out.println("Triangle angle BA: " + getBA_angle());
+    }
+
+    public void printCBangle(){
+        System.out.println("Triangle angle CB: " + getCB_angle());
+    }
 }
 
