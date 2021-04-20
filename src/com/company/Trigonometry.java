@@ -41,14 +41,14 @@ public class Trigonometry {
         // this calculation is designed to heat up the cpu....
         // or it somehow calculates a bearing with trigonometry;
         // one or the other.
-        double initial_bearing = Math.atan2(Math.sin(delta_lon) * Math.cos(EndingPoint.getLatitude_Radian())
+        double radianBearing = Math.atan2(Math.sin(delta_lon) * Math.cos(EndingPoint.getLatitude_Radian())
                                             , (Math.cos(StartingPoint.getLatitude_Radian()) * Math.sin(EndingPoint.getLatitude_Radian())
                                             - ( Math.sin(StartingPoint.getLatitude_Radian()) * Math.cos(EndingPoint.getLatitude_Radian()) * Math.cos(delta_lon))));
 
         //convert this bearing from radians to degrees
-        initial_bearing = Math.toDegrees(initial_bearing);
+        double degreeBearing = Math.toDegrees(radianBearing);
         // and create a compass heading. (0-359)
-        return (initial_bearing + 360) % 360;
+        return (degreeBearing + 360) % 360;
     }
 
     public LatLon getWaypointCoordinates(LatLon StartingPoint, double distance, double bearing)
