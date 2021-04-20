@@ -19,6 +19,10 @@ public class Compass {
         this.rotation = rotation;
     }
 
+    public double getRotation(){
+        return rotation;
+    }
+
     //return arbitrary bearing with offset
     public double Bearing(double degrees)
     {
