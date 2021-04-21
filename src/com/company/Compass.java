@@ -2,9 +2,9 @@ package com.company;
 
 public class Compass {
     private double rotation;
+
     //constructors
     // compass, returns a bearing between 0-359
-
     public Compass(double rotation)
     {
         this.rotation = rotation;
@@ -49,15 +49,15 @@ public class Compass {
     // function to find the compass bearing when the map is rotated (map north not equal to real life north)
     // set the offset when creating the compass
     // it *should* be protected from inputting bad things(numbers)
-    private double Offset_Course_Calculator(double degrees, double offset)
+    private double Offset_Course_Calculator(double inputDegrees, double offsetDegrees)
     {
-        degrees = degrees % 360;
-        double max = offset + 360;
-        double output = offset + degrees;
-        if(output < 0 )
-            output = max - Math.abs(output - offset);
-        if(output > 360 )
-            output = output % 360;
-        return output;
+        double degrees = inputDegrees % 360;
+        double max = offsetDegrees + 360;
+        double heading = offsetDegrees + degrees;
+        if(heading < 0 )
+            heading = max - Math.abs(heading - offsetDegrees);
+        if(heading > 360 )
+            heading = heading % 360;
+        return heading;
     }
 }

@@ -55,14 +55,10 @@ public class Triangle
     {
         angle_ac = ac_angle;
         angle_ba = 90;
-        //cb_angle = abs(ac_angle - ba_angle)
         angle_cb = Math.abs(angle_ac - angle_ba);
 
         length_c = c_length;
-        //   b_length =      cos(  radians          (cb_angle) ) * c_length
         length_b = Math.cos(Math.toRadians(angle_cb) ) * length_c;
-
-        //   a_length = sqrt(          pow(c_length     ,2) -       pow(b_length     ,2) )
         length_a = Math.sqrt(Math.pow(length_c,2) - Math.pow(length_b, 2) );
     }
 

@@ -13,7 +13,7 @@ public class Map {
         setLatLonCenter(northWest,triangle,compass);
     }
 
-    private void setCompassRotation(double rotation){
+    public void setCompassRotation(double rotation){
         compass.setRotation(rotation);
     }
 
@@ -21,7 +21,7 @@ public class Map {
         return compass;
     }
 
-    private Trigonometry getTrigonometry(){
+    public Trigonometry getTrigonometry(){
         return trigonometry;
     }
 
