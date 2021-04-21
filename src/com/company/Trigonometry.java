@@ -88,10 +88,5 @@ public class Trigonometry {
         latLonOutput.Update(latitude, longitude);
         return latLonOutput;
     }
-
-    public Triangle getTriangle(double diagonal_angle, double diagonal_length)
-    {
-        return new Triangle(diagonal_angle, diagonal_length);
-    }
 }
 

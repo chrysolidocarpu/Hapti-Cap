@@ -3,7 +3,6 @@ package com.company;
 public class Main {
     public static void main(String[] args) {
 	// write your code here
-        Trigonometry trig = new Trigonometry();
         System.out.println("hij doet het");
 
         LatLon latLonNW= new LatLon( 50.65662777777778, 14.65810833333333);
@@ -16,7 +15,8 @@ public class Main {
         //50.62703632671463 14.662014534909735
 
         System.out.println("Triangle tests:");
-        Triangle triangle = trig.getTriangle(34.3,25);
+
+        Triangle triangle = new Triangle(34.3,25);
         triangle.printAside();
         triangle.printBside();
         triangle.printCside();
