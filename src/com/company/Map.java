@@ -34,7 +34,7 @@ public class Map {
     }
 
     private void setLatLonCenter(LatLon northWest, Triangle triangle, Compass compass){
-        center = trigonometry.getWaypointCoordinates(northWest, (triangle.getLengthC() / 2), compass.Bearing(triangle.getAC_angle()));
+        center = trigonometry.getWaypointCoordinates(northWest, (triangle.getLengthC() / 2), compass.getBearing(triangle.getAC_angle()));
     }
 
     private LatLon getLatLonCenter(){

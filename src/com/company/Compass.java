@@ -24,26 +24,26 @@ public class Compass {
     }
 
     //return arbitrary bearing with offset
-    public double Bearing(double degrees)
+    public double getBearing(double degrees)
     {
         return Offset_Course_Calculator(degrees, rotation);
     }
     //return north,east,west,south with adjusted bearing
     public double getBearingNorth()
     {
-        return Bearing(0);
+        return getBearing(0);
     }
     public double getBearingSouth()
     {
-        return Bearing(180);
+        return getBearing(180);
     }
     public double getBearingEast()
     {
-        return Bearing(90);
+        return getBearing(90);
     }
     public double getBearingWest()
     {
-        return Bearing(270);
+        return getBearing(270);
     }
 
     // function to find the compass bearing when the map is rotated (map north not equal to real life north)
@@ -54,8 +54,10 @@ public class Compass {
         degrees = degrees % 360;
         double max = offset + 360;
         double output = offset + degrees;
-        if(output < 0 ){  output= max - Math.abs(output - offset); }
-        if(output > 360 ){  output= output % 360;   }
+        if(output < 0 )
+            output = max - Math.abs(output - offset);
+        if(output > 360 )
+            output = output % 360;
         return output;
     }
 }

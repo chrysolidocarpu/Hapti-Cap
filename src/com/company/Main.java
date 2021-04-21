@@ -15,14 +15,13 @@ public class Main {
         //50.62703632671463 14.662014534909735
 
         System.out.println("Triangle tests:");
-
         Triangle triangle = new Triangle(34.3,25);
-        triangle.printAside();
-        triangle.printBside();
-        triangle.printCside();
-        triangle.printACangle();
-        triangle.printBAangle();
-        triangle.printCBangle();
+        triangle.printA_side();
+        triangle.printB_side();
+        triangle.printC_side();
+        triangle.printAC_angle();
+        triangle.printBA_angle();
+        triangle.printCB_angle();
 
         System.out.println("Map test:");
         m.printLatitudeAndLongitude();
