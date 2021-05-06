@@ -1,66 +1,63 @@
 package com.company;
 
 public class Compass {
-    private double _rotation;
+    private double rotation;
 
     //constructors
     // compass, returns a bearing between 0-359
     public Compass(double rotation)
     {
-        this._rotation = rotation;
+        this.rotation = rotation;
     }
     public Compass()
     {
-        this._rotation = 0;
+        this.rotation = 0;
     }
 
     //if for some reason you want to adjust the rotation, update.
-    public  void Update(double offset)
-    {
-        this._rotation = offset;
+    public void setRotation(double rotation) {
+        this.rotation = rotation;
+    }
+
+    public double getRotation(){
+        return rotation;
     }
 
     //return arbitrary bearing with offset
-    public double Bearing(double input)
+    public double getBearing(double degrees)
     {
-        double output;
-        output = Offset_Course_Calculator(input, this._rotation);
-        return output;
+        return Offset_Course_Calculator(degrees, rotation);
     }
     //return north,east,west,south with adjusted bearing
-    public double North()
+    public double getBearingNorth()
     {
-        return Bearing(0);
+        return getBearing(0);
     }
-    public double South()
+    public double getBearingSouth()
     {
-        return Bearing(180);
+        return getBearing(180);
     }
-    public double East()
+    public double getBearingEast()
     {
-        return Bearing(90);
+        return getBearing(90);
     }
-    public double West()
+    public double getBearingWest()
     {
-        return Bearing(270);
+        return getBearing(270);
     }
 
     // function to find the compass bearing when the map is rotated (map north not equal to real life north)
     // set the offset when creating the compass
     // it *should* be protected from inputting bad things(numbers)
-    private double Offset_Course_Calculator(double input, double offset)
+    private double Offset_Course_Calculator(double inputDegrees, double offsetDegrees)
     {
-        double output = 0;
-        input = input % 360;
-
-        double min = offset;
-        double max = min + 360;
-
-        output = min + input;
-        if(output < 0 ){  output= max - Math.abs(output - min); }
-        if(output > 360 ){  output= output % 360;   }
-
-        return  output;
+        double degrees = inputDegrees % 360;
+        double max = offsetDegrees + 360;
+        double heading = offsetDegrees + degrees;
+        if(heading < 0 )
+            heading = max - Math.abs(heading - offsetDegrees);
+        if(heading > 360 )
+            heading = heading % 360;
+        return heading;
     }
-
 }

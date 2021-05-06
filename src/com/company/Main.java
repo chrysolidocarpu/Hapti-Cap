@@ -1,18 +1,30 @@
 package com.company;
 
 public class Main {
-
     public static void main(String[] args) {
 	// write your code here
         System.out.println("hij doet het");
 
+        LatLon latLonNW= new LatLon( 50.65662777777778, 14.65810833333333);
+        LatLon latLonSE= new LatLon( 50.62995, 14.71714722222222);
 
-        LatLon NW= new LatLon( 50.65662777777778, 14.65810833333333);
-        LatLon SE= new LatLon( 50.62995, 14.71714722222222);
+        Map m = new Map(latLonNW,latLonSE,10.56);
+        //50.627084460892895 14.653398365765753
 
-        Trigonometry Trig = new Trigonometry();
+        Map m2 = new Map(latLonNW,latLonSE,0);
+        //50.62703632671463 14.662014534909735
 
-        Map M = new Map(NW,SE,0);
+        System.out.println("Triangle tests:");
+        Triangle triangle = new Triangle(34.1,25);
+        triangle.printA_side();
+        triangle.printB_side();
+        triangle.printC_side();
+        triangle.printAC_angle();
+        triangle.printBA_angle();
+        triangle.printCB_angle();
 
+        System.out.println("Map test:");
+        m.printLatitudeAndLongitude();
+        m2.printLatitudeAndLongitude();
     }
 }

@@ -4,7 +4,6 @@ public class Triangle
 {
   /*
             schematic triangle  with numbered sides
-
                 AC
                 | \
                 | \\
@@ -24,9 +23,24 @@ public class Triangle
 
                 all angles are the inside angles of the triangle.
                 we assume the angle between A and B to be 90 degrees.
-
          */
 
+    private double length_a;
+    private double length_b;
+    private double length_c;
+    private double angle_ac;
+    private double angle_ba;
+    private double angle_cb;
+
+    public double getLengthA(){ return length_a;}
+    public double getLengthB(){ return length_b;}
+    public double getLengthC(){ return length_c;}
+    public double getAC_angle(){ return angle_ac;}
+    public double getBA_angle(){ return angle_ba;}
+    public double getCB_angle(){ return angle_cb;}
+
+    public Triangle(){
+    }
 
     public Triangle(double ac_angle, double c_length)
     {
@@ -39,33 +53,37 @@ public class Triangle
 
     private void setup(double ac_angle, double c_length)
     {
-        this.angle_ac = ac_angle;
-        this.angle_ba = 90;
-        //cb_angle = abs(ac_angle - ba_angle)
-        this.angle_cb = Math.abs(this.angle_ac - this.angle_ba);
+        angle_ac = ac_angle;
+        angle_ba = 90;
+        angle_cb = Math.abs(angle_ac - angle_ba);
 
-        this.length_c = c_length;
-        //   b_length =      cos(  radians          (cb_angle) ) * c_length
-        this.length_b = Math.cos(Math.toRadians(this.angle_cb) ) * this.length_c;
-
-        //   a_length = sqrt(          pow(c_length     ,2) -       pow(b_length     ,2) )
-        this.length_a = Math.sqrt(Math.pow(this.length_c,2) - Math.pow(this.length_b, 2) );
+        length_c = c_length;
+        length_b = Math.cos(Math.toRadians(angle_cb) ) * length_c;
+        length_a = Math.sqrt(Math.pow(length_c,2) - Math.pow(length_b, 2) );
     }
 
+    public void printA_side(){
+        System.out.println("Triangle A-side: " + getLengthA());
+    }
 
-    private double length_a;
-    private double length_b;
-    private double length_c;
-    private double angle_ac;
-    private double angle_ba;
-    private double angle_cb;
+    public void printB_side(){
+        System.out.println("Triangle B-side: " + getLengthB());
+    }
 
-    public double A_Length(){ return this.length_a;}
-    public double B_Length(){ return this.length_b;}
-    public double C_Length(){ return this.length_c;}
-    public double AC_Angle(){ return this.angle_ac;}
-    public double BA_Angle(){ return this.angle_ba;}
-    public double CB_Angle(){ return this.angle_cb;}
+    public void printC_side(){
+        System.out.println("Triangle C-side: " + getLengthC());
+    }
 
+    public void printAC_angle(){
+        System.out.println("Triangle angle AC: " + getAC_angle());
+    }
+
+    public void printBA_angle(){
+        System.out.println("Triangle angle BA: " + getBA_angle());
+    }
+
+    public void printCB_angle(){
+        System.out.println("Triangle angle CB: " + getCB_angle());
+    }
 }
 
